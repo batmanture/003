@@ -111,28 +111,4 @@ jobs:
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@master
 
-    - name: Create Firmware Artifact
-  if: steps.generate.outputs.status == 'success'
-  uses: actions/upload-artifact@v2
-  with:
-    name: firmware-artifact
-    path: $GITHUB_WORKSPACE/docker
 
-- name: Generate Firmware
-  if: steps.compile.outputs.status == 'success'
-  id: generate
-  run: |
-    cd $OPENWRT_PATH/bin/targets/*/*
-    cat config.buildinfo
-    cp *rootfs.tar.gz $GITHUB_WORKSPACE/docker
-    cd $GITHUB_WORKSPACE/docker
-    mv *rootfs.tar.gz docker-img-openwrt-aarch64.tar.gz
-    chmod +x $DOCKER_BUILD && ./$DOCKER_BUILD
-    ls -l   # 输出目录内容
-    echo "status=success" >> $GITHUB_OUTPUT
-
-- name: Display Artifact Download Link
-  if: steps.generate.outputs.status == 'success'
-  run: |
-    echo "Firmware Artifact Download Link:"
-    echo "${{ github.server_url }}/${{ github.repository }}/actions/artifacts/$(steps.generate.outputs.artifacts_id)/firmware-artifact"

@@ -1,0 +1,3 @@
+- name: List contents of docker directory
+  run: |
+    ls -l $GITHUB_WORKSPACE/docker

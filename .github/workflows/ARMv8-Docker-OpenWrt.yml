@@ -160,7 +160,8 @@ jobs:
           - ${{ env.COMMIT_MESSAGE }}
           - ${{ env.COMMIT_HASH }}
 
-Package:
+jobs:
+  Package:
     needs: [Build]
     runs-on: ubuntu-22.04
 

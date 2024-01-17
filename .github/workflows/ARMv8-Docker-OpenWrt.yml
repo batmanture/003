@@ -168,7 +168,7 @@ jobs:
       DEVICE_TARGET: ${{ needs.Build.outputs.DEVICE_TARGET }}
       DEVICE_SUBTARGET: ${{ needs.Build.outputs.DEVICE_SUBTARGET }}
 
-    steps:
+  steps:
     - name: Checkout
       uses: actions/checkout@main
 

@@ -160,11 +160,6 @@ jobs:
           - ${{ env.COMMIT_MESSAGE }}
           - ${{ env.COMMIT_HASH }}
 
-jobs:
-  Package:
-    needs: [Build]
-    runs-on: ubuntu-22.04
-
     env:
       COMMIT_AUTHOR: ${{ needs.Build.outputs.COMMIT_AUTHOR }}
       COMMIT_DATE: ${{ needs.Build.outputs.COMMIT_DATE }}

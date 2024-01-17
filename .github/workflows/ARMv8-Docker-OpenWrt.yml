@@ -14,12 +14,11 @@ env:
   DOCKER_BUILD: buildImageX.sh
   DOCKER_IMAGE: summary/openwrt-aarch64
   TZ: Asia/Shanghai
-  
 jobs:
   Build:
     runs-on: ubuntu-22.04
     steps:
-      - name: Checkout
+    - name: Checkout
         uses: actions/checkout@main
 
     - name: Check Server Performance

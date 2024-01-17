@@ -181,8 +181,7 @@ steps:
       sudo -E apt-get -y install $(curl -fsSL is.gd/depends_ubuntu_2204)
       sudo -E apt-get -y autoremove --purge
       sudo -E apt-get -y clean
-      sudo timedatectl set-timezone "$TZ"
-      
+      sudo timedatectl set-timezone "$TZ"      
   - name: Initialization Environment
     env:
       DEBIAN_FRONTEND: noninteractive
